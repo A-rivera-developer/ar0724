@@ -6,15 +6,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @ExtendWith(MockitoExtension.class)
-class ChargeCalculatorServiceTest {
+class ChargeCalculatorServiceImplTest {
     @InjectMocks
-    private ChargeCalculatorService sut;
+    private ChargeCalculatorServiceImpl sut;
 
     @Test
-    public void shouldCalculatePreDiscountCharge(){
+    public void shouldCalculatePreDiscountCharge() {
         final double EXPECTED_CHARGE = 10;
+
         ChargeInfoModel result = sut.calculateCharges(10L, 1.00, 0);
 
         assertEquals(EXPECTED_CHARGE, result.getPreDiscountCharge());
@@ -23,6 +25,7 @@ class ChargeCalculatorServiceTest {
     @Test
     public void shouldCalculateDiscount() {
         final double EXPECTED_DISCOUNT = 1;
+
         ChargeInfoModel result = sut.calculateCharges(10L, 1.00, 10);
 
         assertEquals(EXPECTED_DISCOUNT, result.getDiscountAmount());
@@ -31,6 +34,7 @@ class ChargeCalculatorServiceTest {
     @Test
     public void shouldCalculateFinalCharge() {
         final double EXPECTED_CHARGE = 9;
+
         ChargeInfoModel result = sut.calculateCharges(10L, 1.00, 10);
 
         assertEquals(EXPECTED_CHARGE, result.getFinalCharge());
@@ -43,6 +47,7 @@ class ChargeCalculatorServiceTest {
         final long days = 10;
         final double dailyCharge = 1;
         final int discountPercent = 10;
+
         ChargeInfoModel result = sut.calculateCharges(days, dailyCharge, discountPercent);
 
         assertEquals(EXPECTED_PRE_DISCOUNT_CHARGE, result.getPreDiscountCharge());
@@ -51,5 +56,4 @@ class ChargeCalculatorServiceTest {
         assertEquals(dailyCharge, result.getDailyRentalCharge());
         assertEquals(discountPercent, result.getDiscountPercent());
     }
-
 }

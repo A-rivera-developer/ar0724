@@ -1,0 +1,20 @@
+{
+  "toolInfo": {
+    "code": "JAKR",
+    "type": "Jackhammer",
+    "brand": "Ridgid"
+  },
+  "dateInfo": {
+    "rentalDays": 9,
+    "checkoutDate": "7/2/15",
+    "dueDate": "7/11/15"
+  },
+  "chargeInfo": {
+    "chargeDays": 5,
+    "dailyRentalCharge": 2.99,
+    "preDiscountCharge": 14.95,
+    "discountPercent": 0.0,
+    "discountAmount": 0.0,
+    "finalCharge": 14.95
+  }
+}

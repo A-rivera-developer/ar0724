@@ -4,6 +4,8 @@ import com.tool.store.database.entity.ToolChargeEntity;
 import com.tool.store.database.entity.ToolEntity;
 import com.tool.store.database.repository.ToolChargeRepository;
 import com.tool.store.database.repository.ToolRepository;
+import com.tool.store.exception.InvalidToolCodeException;
+import com.tool.store.exception.InvalidToolTypeException;
 import com.tool.store.service.model.ToolInfoModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,9 +16,9 @@ import org.modelmapper.ModelMapper;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ToolInformationServiceImplTest {
@@ -25,7 +27,7 @@ class ToolInformationServiceImplTest {
     @Mock
     private ToolChargeRepository toolChargeRepository;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private final ModelMapper modelMapper = new ModelMapper();
 
     private ToolInformationServiceImpl sut;
 
@@ -35,7 +37,7 @@ class ToolInformationServiceImplTest {
     }
 
     @Test
-    public void shouldGetToolInformation() throws Exception {
+    public void shouldGetToolInformation() {
         final String TOOL_CODE = "TOOL CODE";
         final String TOOL_TYPE = "Type";
 
@@ -51,17 +53,17 @@ class ToolInformationServiceImplTest {
     @Test
     public void shouldThrowToolNotFoundExceptionWhenToolDoesntExist() {
         final String TOOL_CODE = "TOOL CODE";
-        assertThrows(Exception.class, ()-> sut.getToolInformation(TOOL_CODE));
+        assertThrows(InvalidToolCodeException.class, () -> sut.getToolInformation(TOOL_CODE));
     }
 
     @Test
-    public void shouldThrowToolChargeNotFoundExpWhenChargeNotFound() {
+    public void shouldThrowToolTypeNotFoundExpWhenChargeNotFound() {
         final String TOOL_CODE = "TOOL CODE";
         final String TOOL_TYPE = "Type";
 
         ToolEntity foundTool = new ToolEntity("", TOOL_TYPE, "");
         when(toolRepository.findById(TOOL_CODE)).thenReturn(Optional.of(foundTool));
 
-        assertThrows(Exception.class, ()-> sut.getToolInformation(TOOL_CODE));
+        assertThrows(InvalidToolTypeException.class, () -> sut.getToolInformation(TOOL_CODE));
     }
 }

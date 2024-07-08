@@ -9,11 +9,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
-@Builder
 @Table(name = "tool_charges")
 public class ToolChargeEntity {
 

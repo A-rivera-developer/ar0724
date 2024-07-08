@@ -1,0 +1,20 @@
+{
+  "toolInfo": {
+    "code": "LADW",
+    "type": "Ladder",
+    "brand": "Werner"
+  },
+  "dateInfo": {
+    "rentalDays": 3,
+    "checkoutDate": "7/2/20",
+    "dueDate": "7/5/20"
+  },
+  "chargeInfo": {
+    "chargeDays": 2,
+    "dailyRentalCharge": 1.99,
+    "preDiscountCharge": 3.98,
+    "discountPercent": 10.0,
+    "discountAmount": 0.4,
+    "finalCharge": 3.58
+  }
+}

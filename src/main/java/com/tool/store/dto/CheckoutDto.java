@@ -1,5 +1,6 @@
 package com.tool.store.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,12 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CheckoutDto {
     @NotNull(message = "Tool Code is required.")
     @NotBlank(message = "Tool Code cannot be blank.")
@@ -23,5 +23,6 @@ public class CheckoutDto {
     @Max(value = 100, message = "The discount percent cannot be greater than 100.")
     private int discountPercent;
     @NotNull(message = "The checkout date is required.")
+    @JsonFormat(pattern = "M/d/yy")
     private LocalDate checkoutDate;
 }

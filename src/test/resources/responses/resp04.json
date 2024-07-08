@@ -1,0 +1,20 @@
+{
+  "toolInfo": {
+    "code": "JAKD",
+    "type": "Jackhammer",
+    "brand": "DeWalt"
+  },
+  "dateInfo": {
+    "rentalDays": 6,
+    "checkoutDate": "9/3/15",
+    "dueDate": "9/9/15"
+  },
+  "chargeInfo": {
+    "chargeDays": 3,
+    "dailyRentalCharge": 2.99,
+    "preDiscountCharge": 8.97,
+    "discountPercent": 0.0,
+    "discountAmount": 0.0,
+    "finalCharge": 8.97
+  }
+}

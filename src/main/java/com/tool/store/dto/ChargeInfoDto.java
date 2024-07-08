@@ -1,4 +1,4 @@
-package com.tool.store.service.model;
+package com.tool.store.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChargeInfoModel {
+public class ChargeInfoDto {
     private long chargeDays;
     private double dailyRentalCharge;
-    private int discountPercent;
     private double preDiscountCharge;
+    private int discountPercent;
     private double discountAmount;
     private double finalCharge;
 }

@@ -1,5 +1,6 @@
-package com.tool.store.service.model;
+package com.tool.store.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +12,10 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RentalDateInfoModel {
+public class DateInfoDto {
     private int rentalDays;
+    @JsonFormat(pattern = "M/d/yy")
     private LocalDate checkoutDate;
+    @JsonFormat(pattern = "M/d/yy")
     private LocalDate dueDate;
 }

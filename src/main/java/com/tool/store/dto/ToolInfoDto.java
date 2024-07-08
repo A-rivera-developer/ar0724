@@ -1,4 +1,4 @@
-package com.tool.store.service.model;
+package com.tool.store.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ToolInfoModel {
-    private ToolModel tool;
-    private ToolChargeModel toolCharge;
+public class ToolInfoDto {
+    private String code;
+    private String type;
+    private String brand;
 }
